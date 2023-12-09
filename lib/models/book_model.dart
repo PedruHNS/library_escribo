@@ -1,12 +1,13 @@
+import 'package:equatable/equatable.dart';
 
-class BookModel {
+class BookModel extends Equatable {
   final int id;
   final String title;
   final String author;
   final String image;
   final String download;
 
-  BookModel({
+  const BookModel({
     required this.id,
     required this.title,
     required this.author,
@@ -28,4 +29,7 @@ class BookModel {
   String toString() {
     return 'Book(id: $id, title: $title, author: $author, image: $image, download: $download)';
   }
+
+  @override
+  List<Object?> get props => [id, title, author, image, download];
 }

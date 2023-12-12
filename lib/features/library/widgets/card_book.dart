@@ -30,6 +30,7 @@ class CardBook extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.pop(context);
+                        
                       },
                       child: const Text('Sim')),
                 ],
@@ -39,20 +40,34 @@ class CardBook extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(image), fit: BoxFit.cover),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(8),
+            child: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(image), fit: BoxFit.cover),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(8),
+                      ),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 1,
+                          spreadRadius: 1,
+                          offset: Offset(1, 3),
+                        )
+                      ]),
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.favorite,
+                      color: Colors.grey,
+                    ),
                   ),
-                  boxShadow: const [
-                    BoxShadow(
-                      blurRadius: 1,
-                      spreadRadius: 1,
-                      offset: Offset(1, 3),
-                    )
-                  ]),
+                ),
+              ],
             ),
           ),
           const SizedBox(

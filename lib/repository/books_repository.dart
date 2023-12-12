@@ -15,6 +15,6 @@ class BooksRepository {
 
     return response
         .map<BookModel>((bookMap) => BookModel.fromMap(bookMap))
-        .toList();
+        .toSet().toList();
   }
 }
